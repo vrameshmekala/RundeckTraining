@@ -1,0 +1,40 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option name='num' value='5' />
+      </options>
+    </context>
+    <defaultTab>summary</defaultTab>
+    <description>Scheduling to run every minute</description>
+    <executionEnabled>true</executionEnabled>
+    <group>Variables/Sched</group>
+    <id>bf7b1bad-611a-4bf1-9652-de77ee767a3f</id>
+    <loglevel>INFO</loglevel>
+    <name>Schedule</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <schedule>
+      <dayofmonth />
+      <month day='*' month='*' />
+      <time hour='*' minute='0/3' seconds='0' />
+      <year year='*' />
+    </schedule>
+    <scheduleEnabled>false</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <exec>echo ${option.num}</exec>
+      </command>
+      <command>
+        <script><![CDATA[echo "comparing number"
+if [ "@option.num@" -eq 5 ]; then
+    echo "Do something"
+fi
+echo "job completed"
+]]></script>
+        <scriptargs />
+      </command>
+    </sequence>
+    <timeZone>UTC</timeZone>
+    <uuid>bf7b1bad-611a-4bf1-9652-de77ee767a3f</uuid>
+  </job>
+</joblist>
